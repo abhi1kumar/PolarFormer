@@ -1,0 +1,55 @@
+home/abhinav/anaconda3/envs/polarformer/lib/python3.8/site-packages/torch/distributed/launch.py:178: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torch.distributed.run.
+Note that --use_env is set by default in torch.distributed.run.
+If your script expects `--local_rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See 
+https://pytorch.org/docs/stable/distributed.html#launch-utility for 
+further instructions
+
+  warnings.warn(
+projects.mmdet3d_plugin
+/home/abhinav/anaconda3/envs/polarformer/lib/python3.8/site-packages/mmcv/cnn/bricks/transformer.py:341: UserWarning: The arguments `feedforward_channels` in BaseTransformerLayer has been deprecated, now you should set `feedforward_channels` and other FFN related arguments to a dict named `ffn_cfgs`. 
+  warnings.warn(
+/home/abhinav/anaconda3/envs/polarformer/lib/python3.8/site-packages/mmcv/cnn/bricks/transformer.py:341: UserWarning: The arguments `ffn_dropout` in BaseTransformerLayer has been deprecated, now you should set `ffn_drop` and other FFN related arguments to a dict named `ffn_cfgs`. 
+  warnings.warn(
+/home/abhinav/anaconda3/envs/polarformer/lib/python3.8/site-packages/mmcv/cnn/bricks/transformer.py:341: UserWarning: The arguments `ffn_num_fcs` in BaseTransformerLayer has been deprecated, now you should set `num_fcs` and other FFN related arguments to a dict named `ffn_cfgs`. 
+  warnings.warn(
+/home/abhinav/anaconda3/envs/polarformer/lib/python3.8/site-packages/mmcv/cnn/bricks/transformer.py:92: UserWarning: The arguments `dropout` in MultiheadAttention has been deprecated, now you can separately set `attn_drop`(float), proj_drop(float), and `dropout_layer`(dict) 
+  warnings.warn('The arguments `dropout` in MultiheadAttention '
+load checkpoint from local path: ckpts/polar_vovnet_diff_res_e6d6_train.pth
+[                                                  ] 0/6019, elapsed: 0s, ETA:/home/abhinav/anaconda3/envs/polarformer/lib/python3.8/site-packages/torch/_tensor.py:575: UserWarning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
+To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (Triggered internally at  ../aten/src/ATen/native/BinaryOps.cpp:467.)
+  return torch.floor_divide(self, other)
+/home/abhinav/anaconda3/envs/polarformer/lib/python3.8/site-packages/torch/nn/functional.py:3981: UserWarning: Default grid_sample and affine_grid behavior has changed to align_corners=False since 1.3.0. Please specify align_corners=True if the old behavior is desired. See the documentation of grid_sample for details.
+  warnings.warn(
+[                                                  ] 1/6019, 0.2 task/s, elapsed: 5s, ETA: 28538s/home/abhinav/project/polarformer_req/PolarFormer/projects/mmdet3d_plugin/core/bbox/coders/nms_free_coder.py:67: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  self.post_center_range = torch.tensor(
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>] 6019/6019, 1.1 task/s, elapsed: 5622s, ETA:     0s
+Formating bboxes of pts_bbox
+Start to convert detection format...
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>] 6019/6019, 29.4 task/s, elapsed: 205s, ETA:     0s
+Results writes to /tmp/tmpnfb7wqlt/results/pts_bbox/results_nusc.json
+Evaluating bboxes of pts_bbox
+mAP: 0.5004                                                                                                                                                                                                  
+mATE: 0.5825
+mASE: 0.2620
+mAOE: 0.2472
+mAVE: 0.6012
+mAAE: 0.1926
+NDS: 0.5616
+Eval time: 97.1s
+
+Per-class results:
+Object Class	AP	ATE	ASE	AOE	AVE	AAE
+car	0.687	0.393	0.147	0.046	0.651	0.203
+truck	0.469	0.617	0.207	0.059	0.603	0.225
+bus	0.580	0.569	0.196	0.048	1.108	0.250
+trailer	0.325	0.849	0.221	0.206	0.438	0.151
+construction_vehicle	0.193	0.947	0.447	0.508	0.145	0.360
+pedestrian	0.554	0.549	0.293	0.451	0.406	0.193
+motorcycle	0.493	0.556	0.240	0.292	1.088	0.152
+bicycle	0.453	0.496	0.271	0.492	0.371	0.006
+traffic_cone	0.637	0.390	0.309	nan	nan	nan
+barrier	0.613	0.461	0.290	0.124	nan	nan
+{'pts_bbox_NuScenes/car_AP_dist_0.5': 0.3591, 'pts_bbox_NuScenes/car_AP_dist_1.0': 0.6537, 'pts_bbox_NuScenes/car_AP_dist_2.0': 0.8375, 'pts_bbox_NuScenes/car_AP_dist_4.0': 0.896, 'pts_bbox_NuScenes/car_trans_err': 0.3932, 'pts_bbox_NuScenes/car_scale_err': 0.1469, 'pts_bbox_NuScenes/car_orient_err': 0.0456, 'pts_bbox_NuScenes/car_vel_err': 0.6505, 'pts_bbox_NuScenes/car_attr_err': 0.2034, 'pts_bbox_NuScenes/mATE': 0.5825, 'pts_bbox_NuScenes/mASE': 0.262, 'pts_bbox_NuScenes/mAOE': 0.2472, 'pts_bbox_NuScenes/mAVE': 0.6012, 'pts_bbox_NuScenes/mAAE': 0.1926, 'pts_bbox_NuScenes/truck_AP_dist_0.5': 0.1099, 'pts_bbox_NuScenes/truck_AP_dist_1.0': 0.3817, 'pts_bbox_NuScenes/truck_AP_dist_2.0': 0.6451, 'pts_bbox_NuScenes/truck_AP_dist_4.0': 0.7398, 'pts_bbox_NuScenes/truck_trans_err': 0.6168, 'pts_bbox_NuScenes/truck_scale_err': 0.2074, 'pts_bbox_NuScenes/truck_orient_err': 0.0591, 'pts_bbox_NuScenes/truck_vel_err': 0.6032, 'pts_bbox_NuScenes/truck_attr_err': 0.225, 'pts_bbox_NuScenes/construction_vehicle_AP_dist_0.5': 0.0, 'pts_bbox_NuScenes/construction_vehicle_AP_dist_1.0': 0.0568, 'pts_bbox_NuScenes/construction_vehicle_AP_dist_2.0': 0.2585, 'pts_bbox_NuScenes/construction_vehicle_AP_dist_4.0': 0.4572, 'pts_bbox_NuScenes/construction_vehicle_trans_err': 0.9468, 'pts_bbox_NuScenes/construction_vehicle_scale_err': 0.447, 'pts_bbox_NuScenes/construction_vehicle_orient_err': 0.5083, 'pts_bbox_NuScenes/construction_vehicle_vel_err': 0.1452, 'pts_bbox_NuScenes/construction_vehicle_attr_err': 0.3598, 'pts_bbox_NuScenes/bus_AP_dist_0.5': 0.1494, 'pts_bbox_NuScenes/bus_AP_dist_1.0': 0.502, 'pts_bbox_NuScenes/bus_AP_dist_2.0': 0.7818, 'pts_bbox_NuScenes/bus_AP_dist_4.0': 0.8849, 'pts_bbox_NuScenes/bus_trans_err': 0.5692, 'pts_bbox_NuScenes/bus_scale_err': 0.1957, 'pts_bbox_NuScenes/bus_orient_err': 0.0484, 'pts_bbox_NuScenes/bus_vel_err': 1.1076, 'pts_bbox_NuScenes/bus_attr_err': 0.2504, 'pts_bbox_NuScenes/trailer_AP_dist_0.5': 0.0053, 'pts_bbox_NuScenes/trailer_AP_dist_1.0': 0.1606, 'pts_bbox_NuScenes/trailer_AP_dist_2.0': 0.4764, 'pts_bbox_NuScenes/trailer_AP_dist_4.0': 0.657, 'pts_bbox_NuScenes/trailer_trans_err': 0.8487, 'pts_bbox_NuScenes/trailer_scale_err': 0.221, 'pts_bbox_NuScenes/trailer_orient_err': 0.2055, 'pts_bbox_NuScenes/trailer_vel_err': 0.4379, 'pts_bbox_NuScenes/trailer_attr_err': 0.151, 'pts_bbox_NuScenes/barrier_AP_dist_0.5': 0.2928, 'pts_bbox_NuScenes/barrier_AP_dist_1.0': 0.5834, 'pts_bbox_NuScenes/barrier_AP_dist_2.0': 0.7577, 'pts_bbox_NuScenes/barrier_AP_dist_4.0': 0.818, 'pts_bbox_NuScenes/barrier_trans_err': 0.4611, 'pts_bbox_NuScenes/barrier_scale_err': 0.2898, 'pts_bbox_NuScenes/barrier_orient_err': 0.1236, 'pts_bbox_NuScenes/barrier_vel_err': nan, 'pts_bbox_NuScenes/barrier_attr_err': nan, 'pts_bbox_NuScenes/motorcycle_AP_dist_0.5': 0.1525, 'pts_bbox_NuScenes/motorcycle_AP_dist_1.0': 0.4341, 'pts_bbox_NuScenes/motorcycle_AP_dist_2.0': 0.6457, 'pts_bbox_NuScenes/motorcycle_AP_dist_4.0': 0.74, 'pts_bbox_NuScenes/motorcycle_trans_err': 0.5555, 'pts_bbox_NuScenes/motorcycle_scale_err': 0.2398, 'pts_bbox_NuScenes/motorcycle_orient_err': 0.2919, 'pts_bbox_NuScenes/motorcycle_vel_err': 1.0884, 'pts_bbox_NuScenes/motorcycle_attr_err': 0.1522, 'pts_bbox_NuScenes/bicycle_AP_dist_0.5': 0.1855, 'pts_bbox_NuScenes/bicycle_AP_dist_1.0': 0.4264, 'pts_bbox_NuScenes/bicycle_AP_dist_2.0': 0.5793, 'pts_bbox_NuScenes/bicycle_AP_dist_4.0': 0.622, 'pts_bbox_NuScenes/bicycle_trans_err': 0.4955, 'pts_bbox_NuScenes/bicycle_scale_err': 0.271, 'pts_bbox_NuScenes/bicycle_orient_err': 0.4915, 'pts_bbox_NuScenes/bicycle_vel_err': 0.3709, 'pts_bbox_NuScenes/bicycle_attr_err': 0.0062, 'pts_bbox_NuScenes/pedestrian_AP_dist_0.5': 0.1954, 'pts_bbox_NuScenes/pedestrian_AP_dist_1.0': 0.4886, 'pts_bbox_NuScenes/pedestrian_AP_dist_2.0': 0.7183, 'pts_bbox_NuScenes/pedestrian_AP_dist_4.0': 0.8154, 'pts_bbox_NuScenes/pedestrian_trans_err': 0.5488, 'pts_bbox_NuScenes/pedestrian_scale_err': 0.2931, 'pts_bbox_NuScenes/pedestrian_orient_err': 0.4513, 'pts_bbox_NuScenes/pedestrian_vel_err': 0.4062, 'pts_bbox_NuScenes/pedestrian_attr_err': 0.1933, 'pts_bbox_NuScenes/traffic_cone_AP_dist_0.5': 0.3619, 'pts_bbox_NuScenes/traffic_cone_AP_dist_1.0': 0.625, 'pts_bbox_NuScenes/traffic_cone_AP_dist_2.0': 0.7515, 'pts_bbox_NuScenes/traffic_cone_AP_dist_4.0': 0.8097, 'pts_bbox_NuScenes/traffic_cone_trans_err': 0.3897, 'pts_bbox_NuScenes/traffic_cone_scale_err': 0.3088, 'pts_bbox_NuScenes/traffic_cone_orient_err': nan, 'pts_bbox_NuScenes/traffic_cone_vel_err': nan, 'pts_bbox_NuScenes/traffic_cone_attr_err': nan, 'pts_bbox_NuScenes/NDS': 0.5616266684198717, 'pts_bbox_NuScenes/mAP': 0.5003968751966722}
+
