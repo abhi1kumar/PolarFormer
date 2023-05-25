@@ -42,19 +42,28 @@ After preparation, you will be able to see the following directory structure:
   ├── ckpts
   ├── README.md
   ```
-## Train & inference
-```bash
-cd PolarFormer
-```
+## Training
+
 You can train the model following:
 ```bash
 tools/dist_train.sh projects/configs/polarformer/polarformer_r101.py.py 8 --work-dir work_dirs/polarformer_r101/
 ```
+
+## Inference and Results
+
+### 3D Object Detection on nuScenes validation set:
+| model | mAP      | NDS     | config | download |
+|:--------:|:----------:|:---------:|:---------:|:---------:|
+PolarFormer, V2-99 |50.0 |56.2 |  [config](projects/configs/polarformer/polarformer_vovnet.py) | [ckpt](https://drive.google.com/file/d/1VmDyfgtVkKwYyoJCNb3cm4aRiTBn67lQ/view) / [log](docs/vovnet_eval.log) |
+PolarFormer, R101_DCN| 39.6| 45.8| [config](projects/configs/polarformer/polarformer_r101.py) | [ckpt](https://drive.google.com/file/d/1Jgh49QJXls6XP6OAGhm744JHCGb7dGpP/view?usp=share_link) |
+PolarFormer-w/o_bev_aug, R101_DCN |39.2 |46.0 | [config](projects/configs/polarformer/polarformer_r101_without_bev_aug.py) | [ckpt](https://drive.google.com/file/d/1GhCqJaaBEOYl-hkAwew2bmIt98AHPnpg/view?usp=share_link) / [log](https://drive.google.com/file/d/13hwLWauwTE9i2K2_-w8pNlfTKj9N1Jbl/view?usp=share_link)|
+PolarFormer-T, R101_DCN| 43.2| 52.8| - | - |
+<br>
+
 You can evaluate the model following:
 ```bash
-tools/dist_test.sh projects/configs/polarformer/polarformer_r101.py work_dirs/polarformer_r101/latest.pth 8 --eval bbox
+CUDA_VISIBLE_DEVICES=0 PORT=29502 tools/dist_test.sh projects/configs/polarformer/polarformer_vovnet.py ckpts/polar_vovnet_diff_res_e6d6_train.pth 1 --eval=bbox
 ```
-## Main Results
 
 ### 3D Object Detection on nuScenes test set:
 | model | mAP      | NDS     |
@@ -63,15 +72,6 @@ PolarFormer, R101_DCN |41.5 |47.0 |
 PolarFormer-T, R101_DCN|45.7 |54.3 |
 PolarFormer, V2-99 |45.5 |50.3|
 PolarFormer-T, V2-99 | 49.3|57.2|
-<br>
-
-### 3D Object Detection on nuScenes validation set:
-| model | mAP      | NDS     | config | download |
-|:--------:|:----------:|:---------:|:---------:|:---------:|
-PolarFormer, R101_DCN| 39.6| 45.8| [config](projects/configs/polarformer/polarformer_r101.py) | [ckpt](https://drive.google.com/file/d/1Jgh49QJXls6XP6OAGhm744JHCGb7dGpP/view?usp=share_link) |
-PolarFormer-w/o_bev_aug, R101_DCN |39.2 |46.0 | [config](projects/configs/polarformer/polarformer_r101_without_bev_aug.py) | [ckpt](https://drive.google.com/file/d/1GhCqJaaBEOYl-hkAwew2bmIt98AHPnpg/view?usp=share_link) / [log](https://drive.google.com/file/d/13hwLWauwTE9i2K2_-w8pNlfTKj9N1Jbl/view?usp=share_link)|
-PolarFormer-T, R101_DCN| 43.2| 52.8| - | - |
-PolarFormer, V2-99 |50.0 |56.2 |  [config](projects/configs/polarformer/polarformer_vovnet.py) | [ckpt](https://drive.google.com/file/d/1c5rgTpHA98dFKmQ9BJN0zZbSuBFT8_Bt/view?usp=share_link)|
 <br>
 
 **Note**: We adopt BEV data augmentation(random flipping, scaling and rotation) as the default setting when developing PolarFormer on nuScenes dataset. However, as the ablation in 2nd row indicates, BEV augmentation contributes little to the overall performance of PolarFormer. So please feel free to set "use_bev_aug = False" during training if you want to reduce computational burden.
